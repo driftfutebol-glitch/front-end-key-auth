@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KeyAuth Cloud Frontend</title>
+    <meta
+      name="description"
+      content="Frontend Vercel para gerar e validar keys na sua source KeyAuth."
+    />
+    <link rel="stylesheet" href="./assets/site.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-row">
+        <a class="logo" href="./">KeyAuth<span>Cloud</span></a>
+        <nav class="nav">
+          <a href="./panel">Painel</a>
+          <a href="https://keyauth.cc" target="_blank" rel="noreferrer">KeyAuth</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <article class="card">
+            <p>Frontend pronto para Vercel</p>
+            <h1>Gerar e validar keys com backend KeyAuth em servidor proprio.</h1>
+            <p>
+              Este frontend foi feito para deploy direto no Vercel. A geracao da key
+              passa pela API serverless e usa variaveis de ambiente, sem expor sellerkey
+              no navegador.
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="./panel">Abrir Painel</a>
+              <a class="btn btn-ghost" href="https://vercel.com" target="_blank" rel="noreferrer">Deploy no Vercel</a>
+            </div>
+          </article>
+          <article class="card">
+            <h2>Arquitetura recomendada</h2>
+            <p>1. Frontend no Vercel</p>
+            <p>2. KeyAuth source (PHP + MySQL + Redis) em VPS/servidor</p>
+            <p>3. Painel usa:</p>
+            <p><code>/api/generate-key</code> para criacao</p>
+            <p><code>/api/validate-key</code> para validacao online</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container grid-3">
+          <article class="card">
+            <h2>Seguro</h2>
+            <p>sellerkey fica no serverless env, nao no frontend.</p>
+            <p class="kpi">ENV</p>
+          </article>
+          <article class="card">
+            <h2>Escalavel</h2>
+            <p>UI separada do backend principal da KeyAuth.</p>
+            <p class="kpi">API</p>
+          </article>
+          <article class="card">
+            <h2>Pratico</h2>
+            <p>mesma key funciona no site e no .exe quando gerada na base real.</p>
+            <p class="kpi">SYNC</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>KeyAuth Cloud Frontend para deploy Vercel.</p>
+      </div>
+    </footer>
+  </body>
+</html>
