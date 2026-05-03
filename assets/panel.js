@@ -1,5 +1,5 @@
 (() => {
-  const STORAGE_KEY = "keyauth_vercel_history_v1";
+  const STORAGE_KEY = "license_panel_history_v1";
 
   const el = {
     generateForm: document.getElementById("generateForm"),
@@ -30,13 +30,19 @@
     el.generateForm?.addEventListener("submit", async (event) => {
       event.preventDefault();
       const buyer = String(el.buyer?.value || "").trim();
-      const durationDays = Number(el.durationDays?.value || 30);
+      const durationValue = String(el.durationDays?.value || "7").trim();
+      const durationDays = parseDurationInput(durationValue);
       const level = Number(el.level?.value || 1);
       const mask = String(el.mask?.value || "").trim();
       const charMode = Number(el.charMode?.value || 1);
 
       if (!buyer) {
         setStatus(el.generateStatus, "Informe o nome do cliente.", "warn");
+        return;
+      }
+
+      if (!Number.isFinite(durationDays) || durationDays <= 0) {
+        setStatus(el.generateStatus, "Use 7, 10, 20, 30, 90, 365 ou lifetime.", "warn");
         return;
       }
 
@@ -61,6 +67,7 @@
           list.unshift({
             createdAt: Date.now(),
             buyer,
+            durationLabel: durationValue,
             durationDays,
             level,
             key
@@ -160,13 +167,30 @@
           <tr>
             <td>${escapeHtml(date)}</td>
             <td>${escapeHtml(item.buyer)}</td>
-            <td>${escapeHtml(String(item.durationDays))} dias</td>
+            <td>${escapeHtml(formatDurationLabel(item))}</td>
             <td>${escapeHtml(String(item.level))}</td>
             <td>${escapeHtml(item.key)}</td>
           </tr>
         `;
       })
       .join("");
+  }
+
+  function parseDurationInput(value) {
+    if (!value) return NaN;
+    if (value.toLowerCase() === "lifetime" || value.toLowerCase() === "life") {
+      return 36500;
+    }
+
+    return Number(value);
+  }
+
+  function formatDurationLabel(item) {
+    if (item.durationLabel) {
+      return item.durationLabel.toLowerCase() === "lifetime" ? "lifetime" : item.durationLabel + " dias";
+    }
+
+    return String(item.durationDays || "") + " dias";
   }
 
   function readHistory() {

@@ -14,8 +14,8 @@ param(
   [Parameter(Mandatory = $true)]
   [string]$SellerKey,
 
-  [string]$DisplayName = "Painel KeyAuth FreeFire",
-  [string]$PackageName = "painel-keyauth-freefire",
+  [string]$DisplayName = "Painel de Licencas",
+  [string]$PackageName = "painel-licencas-cliente",
   [string]$KeyAuthVersion = "1.0",
   [string]$KeyAuthHash = "",
   [string]$OutputZip = ""

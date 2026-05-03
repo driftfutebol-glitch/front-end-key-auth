@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Painel KeyAuth</title>
+    <title>Painel de Licencas</title>
     <link rel="stylesheet" href="../assets/site.css" />
   </head>
   <body>
     <header class="header">
       <div class="container header-row">
-        <a class="logo" href="../">KeyAuth<span>Cloud</span></a>
+        <a class="logo" href="../">License<span>Hub</span></a>
         <nav class="nav">
           <a href="../">Inicio</a>
           <a href="./">Painel</a>
@@ -21,20 +21,15 @@
       <div class="container">
         <div class="panel-grid">
           <article class="card">
-            <h2>Gerar Key no KeyAuth</h2>
+            <h2>Gerar Licenca</h2>
             <form id="generateForm">
               <label>
                 Cliente
                 <input type="text" id="buyer" placeholder="Ex: Joao Silva" required />
               </label>
               <label>
-                Duracao (dias)
-                <select id="durationDays">
-                  <option value="7">7</option>
-                  <option value="30" selected>30</option>
-                  <option value="90">90</option>
-                  <option value="365">365</option>
-                </select>
+                Duracao
+                <input type="text" id="durationDays" value="7" placeholder="7, 10, 20 ou lifetime" />
               </label>
               <label>
                 Level
@@ -68,7 +63,7 @@
                 HWID (opcional)
                 <input type="text" id="hwid" placeholder="Deixe em branco para auto" />
               </label>
-              <button class="btn btn-primary" type="submit">Validar no KeyAuth</button>
+              <button class="btn btn-primary" type="submit">Validar</button>
             </form>
             <div id="validateStatus" class="status">Aguardando validacao.</div>
           </article>

@@ -1,11 +1,10 @@
 ﻿{
-    "name":  "painel-keyauth-freefire",
+    "name":  "painel-licencas-cliente",
     "version":  "1.0.0",
     "private":  true,
     "scripts":  {
                     "dev":  "node server.js",
-                    "start":  "node server.js",
-                    "start:vercel":  "vercel dev"
+                    "start":  "node server.js"
                 }
 }
 

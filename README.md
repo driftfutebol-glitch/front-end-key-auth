@@ -1,8 +1,8 @@
-# Painel KeyAuth (Discloud)
+# Painel de Licencas (Discloud)
 
 Frontend com:
 - landing page
-- painel web para gerar key no KeyAuth
+- painel web para gerar key no seu backend
 - validacao online de key (`init + license`)
 
 ## Setup automatico (recomendado)
@@ -43,6 +43,11 @@ Esse comando:
 - `-KeyAuthVersion "1.0"`
 - `-KeyAuthHash "HASH_OPCIONAL"`
 - `-OutputZip "C:\caminho\arquivo.zip"`
+
+## Duracoes
+
+- `7`, `10`, `20`, `30`, `90`, `365`
+- `lifetime` usa expiracao longa para chave permanente
 
 ## Rotas
 
